@@ -1,0 +1,5 @@
+val textFile = sc.textFile("input file path")
+val counts = textFile.flatMap(line => line.split(" "))
+                 .map(word => (word, 1))
+                 .reduceByKey(_ + _)
+counts.saveAsTextFile("output file path")
